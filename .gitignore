@@ -1,0 +1,16 @@
+.venv/
+.idea/
+.vscode/
+.devcontainer/
+__pycache__/
+staticfiles/
+htmlcov/
+
+.env
+.env-google
+.python-version
+*.sqlite3
+*.bak
+*.mo
+.coverage
+env/
