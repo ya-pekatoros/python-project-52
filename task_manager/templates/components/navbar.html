@@ -1,0 +1,51 @@
+{% load i18n static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <a class="navbar-brand" href="/">{% translate "Task manager" %}</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/users/">{% translate "Users" %}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav btn-group">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle='dropdown' role='button' aria-expanded='false'>
+          <img class="mt-auto" src="{% static "images/locale_icons/"|add:LANGUAGE_CODE|add:".svg" %}"
+          alt="current language is {{ LANGUAGE_CODE }}" width="25">
+          {{ LANGUAGE_CODE|upper }}
+        </a>
+        <ul class='dropdown-menu' role='menu'>
+          <li>
+            <form name="setLanguage" action="{% url 'set_language' %}" method="post">
+              {% csrf_token %}
+              {% get_available_languages as AVAILABLE_LANGUAGES %}
+              {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+              {% for language in languages %}
+                {% if language.code != LANGUAGE_CODE %}
+                  <input name="language" type="hidden" value="{{ language.code|lower }}"/>
+                  <a class="dropdown-item" href="javascript:document.setLanguage.submit()">
+                    <img src="{% static "images/locale_icons/"|add:language.code|add:".svg" %}"
+                    alt="set language to {{ language.code}}" width="25">
+                    {{ language.name_local }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </form>
+          </li>
+        </ul>
+      </div>
+      </ul>
+      <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/login/">{% translate "Login" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/create/">{% translate "Sign up" %}</a>
+          </li>
+        
+      </ul>
+    </div>
+</nav>

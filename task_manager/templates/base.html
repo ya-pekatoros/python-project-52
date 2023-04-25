@@ -1,0 +1,35 @@
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="ru-ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% translate "Task Manager" %}</title>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      {% include 'components/navbar.html' %}
+    </header>
+    <main>
+      <div class="container wrapper flex-grow-1">
+          <h1 class="my-4"></h1>
+          <h1 class="my-4"></h1>
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+    <footer>
+      {% include 'components/footer.html' %}
+    </footer>
+  </body>
+</html>

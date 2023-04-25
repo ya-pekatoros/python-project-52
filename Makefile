@@ -15,6 +15,9 @@ setup: migrate
 
 build-db: db-drop db-create schema-data-load
 
+collectstatic:
+		poetry run python manage.py collectstatic --no-input
+
 db-start:
 		sudo service postgresql start
 
@@ -38,7 +41,7 @@ dbs-show:
 		psql -l
 
 db-connect:
-	psql -d $(DB_NAME)
+		psql -d $(DB_NAME)
 
 
 db-show-log:
@@ -51,13 +54,20 @@ db-railway-update:
 		pg_restore -U postgres -h containers-us-west-152.railway.app -p 8050 -W -Ft -d railway db-project.dump
 
 start:
-		poetry run manage.py startserver 0.0.0.0:8000
+		poetry run python3 manage.py runserver 0.0.0.0:8000
 
 lint:
-    	poetry run flake8 .
+		poetry run flake8 .
 
 test:
 		poetry run coverage run --source='.' manage.py test
+
+transprepare:
+		poetry run django-admin makemessages --locale ru --add-location file
+		poetry run django-admin makemessages --locale ru --add-location file --domain djangojs
+
+transcompile:
+		poetry run django-admin compilemessages
 
 show-active-ports:
 		sudo lsof -i -P -n | grep LISTEN

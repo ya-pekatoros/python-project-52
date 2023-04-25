@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="card">
+    <div class="card-body p-5 bg-light">
+      <div class="display-4 text-primary">{% translate "Hello!" %}</div>
+      <p class="lead">{% translate "This is the simple task manager" %}</p>
+      <hr>
+    </div>
+  </div>
+{% endblock content %}

@@ -16,6 +16,25 @@ files = [
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
+name = "beautifulsoup4"
+version = "4.12.2"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+files = [
+    {file = "beautifulsoup4-4.12.2-py3-none-any.whl", hash = "sha256:bd2520ca0d9d7d12694a53d44ac482d181b4ec1888909b035a3dbf40d0f57d4a"},
+    {file = "beautifulsoup4-4.12.2.tar.gz", hash = "sha256:492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"},
+]
+
+[package.dependencies]
+soupsieve = ">1.2"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -63,6 +82,22 @@ tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
+
+[[package]]
+name = "django-bootstrap4"
+version = "23.1"
+description = "Bootstrap 4 for Django"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django-bootstrap4-23.1.tar.gz", hash = "sha256:2c1ad756b44b17093d9b49d8840f5ad8537ec30cb4412834d9bf3c59e0d976ad"},
+    {file = "django_bootstrap4-23.1-py3-none-any.whl", hash = "sha256:e324f40e2dda69725982cf6b5ac6004f29c55ac492aabd880ed57693d3c4c93c"},
+]
+
+[package.dependencies]
+beautifulsoup4 = ">=4.8.0"
+Django = ">=3.2"
 
 [[package]]
 name = "exceptiongroup"
@@ -201,6 +236,18 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "soupsieve"
+version = "2.4.1"
+description = "A modern CSS selector implementation for Beautiful Soup."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "soupsieve-2.4.1-py3-none-any.whl", hash = "sha256:1c1bfee6819544a3447586c889157365a27e10d88cde3ad3da0cf0ddf646feb8"},
+    {file = "soupsieve-2.4.1.tar.gz", hash = "sha256:89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"},
+]
+
+[[package]]
 name = "sqlparse"
 version = "0.4.4"
 description = "A non-validating SQL parser."
@@ -256,4 +303,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f5bd4a23e700da6d1eb76a5547d6d31ff57307723c4c958100333d2e432bfba2"
+content-hash = "f98f0a654900f6d8676273b3b83defa862937d454acc44c7d9f9dbc3b8a8869a"
