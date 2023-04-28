@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 08:53+0300\n"
+"POT-Creation-Date: 2023-04-28 06:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,38 +19,131 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: task_manager/settings.py
+
+#: auth/views.py
+msgid "User registered successfully!"
+msgstr "Пользователь зарегистрирован успешно!"
+
+#: auth/views.py
+msgid "Invalid username or password!"
+msgstr "Неправильное имя пользователя или пароль!"
+
+#: auth/views.py
+msgid "Login successful!"
+msgstr "Вы успешно вошли!"
+
+#: auth/views.py
+msgid "Logout successful!"
+msgstr "Вы успешно вышли!"
+
+#: auth/views.py
+msgid "You are not authorized, please log in!"
+msgstr "Вы не авторизованы, пожалуйста выполните вход!"
+
+#: auth/views.py
+msgid "You cannot delete yourself!"
+msgstr "Вы не можете удалить себя!"
+
+#: auth/views.py
+msgid "You have no permission to delete users!"
+msgstr "Вы не имеете прав на удаление пользователей!"
+
+#: auth/views.py
+msgid "User deleted successfully!"
+msgstr "Пользователь удален успешно!"
+
+#: auth/views.py
+msgid "You have no permission to edit users!"
+msgstr "Вы не имеете прав на изменение пользователей!"
+
+#: auth/views.py
+msgid "User updated successfully!"
+msgstr "Пользователь изменен успешно!"
+
+#: config/settings.py
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py
+#: config/settings.py
 msgid "English"
 msgstr "Английский"
 
-#: task_manager/templates/base.html
+#: templates/base.html
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/components/navbar.html
+#: templates/components/navbar.html
 msgid "Task manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/components/navbar.html
+#: templates/components/navbar.html
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/components/navbar.html
+#: templates/components/navbar.html
+msgid "Logout"
+msgstr "Выход"
+
+#: templates/components/navbar.html templates/login.html
 msgid "Login"
 msgstr "Вход"
 
-#: task_manager/templates/components/navbar.html
+#: templates/components/navbar.html
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/templates/index.html
+#: templates/index.html
 msgid "Hello!"
 msgstr "Привет"
 
-#: task_manager/templates/index.html
+#: templates/index.html
 msgid "This is the simple task manager"
 msgstr "Это просто менеджер задач"
+
+#: templates/user_create.html
+msgid "Registration"
+msgstr "Регистрация"
+
+#: templates/user_create.html
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: templates/user_delete.html
+msgid "User delete"
+msgstr "Удалить пользователя"
+
+#: templates/user_delete.html
+msgid "Are you sure to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: templates/user_delete.html
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: templates/user_list.html
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/user_list.html
+msgid "Full name"
+msgstr "Полное имя"
+
+#: templates/user_list.html
+msgid "Date of join"
+msgstr "Дата регистрации"
+
+#: templates/user_list.html
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/user_list.html
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/user_update.html
+msgid "User update"
+msgstr "Изменение пользователя"
+
+#: templates/user_update.html
+msgid "Update"
+msgstr "Изменить"

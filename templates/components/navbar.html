@@ -38,14 +38,24 @@
         </ul>
       </div>
       </ul>
-      <ul class="navbar-nav">
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav">
+          <li class="nav-item">
+          <form action="/logout/" method="post" class="form-inline mb-0">
+            {% csrf_token %}
+            <input class="btn nav-link" type="submit" value={% translate "Logout" %}>
+          </form>
+          </li>
+        </ul>
+      {% else %}
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="/login/">{% translate "Login" %}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/users/create/">{% translate "Sign up" %}</a>
           </li>
-        
-      </ul>
+        </ul>
+      {% endif %}
     </div>
 </nav>

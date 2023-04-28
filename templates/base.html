@@ -8,7 +8,6 @@
 {% bootstrap_javascript jquery='full' %}
 
 {# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
 
 <!DOCTYPE html>
 <html lang="ru-ru">
@@ -23,12 +22,13 @@
     </header>
     <main>
       <div class="container wrapper flex-grow-1">
+        {% bootstrap_messages %}
           <h1 class="my-4"></h1>
           <h1 class="my-4"></h1>
         {% block content %}{% endblock %}
       </div>
     </main>
-    <footer>
+    <footer class="mt-auto">
       {% include 'components/footer.html' %}
     </footer>
   </body>
