@@ -9,6 +9,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/users/">{% translate "Users" %}</a>
         </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/statuses/">{% translate "Statuses" %}</a>
+          </li>
+        {% endif %}
       </ul>
       <ul class="navbar-nav btn-group">
       <div class="dropdown">

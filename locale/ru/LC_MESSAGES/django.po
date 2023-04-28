@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-28 06:38+0300\n"
+"POT-Creation-Date: 2023-04-28 12:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,46 +20,6 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: auth/views.py
-msgid "User registered successfully!"
-msgstr "Пользователь зарегистрирован успешно!"
-
-#: auth/views.py
-msgid "Invalid username or password!"
-msgstr "Неправильное имя пользователя или пароль!"
-
-#: auth/views.py
-msgid "Login successful!"
-msgstr "Вы успешно вошли!"
-
-#: auth/views.py
-msgid "Logout successful!"
-msgstr "Вы успешно вышли!"
-
-#: auth/views.py
-msgid "You are not authorized, please log in!"
-msgstr "Вы не авторизованы, пожалуйста выполните вход!"
-
-#: auth/views.py
-msgid "You cannot delete yourself!"
-msgstr "Вы не можете удалить себя!"
-
-#: auth/views.py
-msgid "You have no permission to delete users!"
-msgstr "Вы не имеете прав на удаление пользователей!"
-
-#: auth/views.py
-msgid "User deleted successfully!"
-msgstr "Пользователь удален успешно!"
-
-#: auth/views.py
-msgid "You have no permission to edit users!"
-msgstr "Вы не имеете прав на изменение пользователей!"
-
-#: auth/views.py
-msgid "User updated successfully!"
-msgstr "Пользователь изменен успешно!"
-
 #: config/settings.py
 msgid "Russian"
 msgstr "Русский"
@@ -67,6 +27,58 @@ msgstr "Русский"
 #: config/settings.py
 msgid "English"
 msgstr "Английский"
+
+#: task_manager/statuses/views.py
+msgid "Status created successfully!"
+msgstr "Статус создан успешно!"
+
+#: task_manager/statuses/views.py
+msgid "Status deleted successfully!"
+msgstr "Статус удален успешно!"
+
+#: task_manager/statuses/views.py
+msgid "Status updated successfully!"
+msgstr "Стутс изменен успешно!"
+
+#: task_manager/users/views.py
+msgid "User registered successfully!"
+msgstr "Пользователь зарегистрирован успешно!"
+
+#: task_manager/users/views.py
+msgid "Login successful!"
+msgstr "Вы успешно вошли!"
+
+#: task_manager/users/views.py
+msgid "Invalid username or password!"
+msgstr "Неправильное имя пользователя или пароль!"
+
+#: task_manager/users/views.py
+msgid "Logout successful!"
+msgstr "Вы успешно вышли!"
+
+#: task_manager/users/views.py
+msgid "User deleted successfully!"
+msgstr "Пользователь удален успешно!"
+
+#: task_manager/users/views.py
+msgid "You cannot delete yourself!"
+msgstr "Вы не можете удалить себя!"
+
+#: task_manager/users/views.py
+msgid "You have no permission to delete users!"
+msgstr "Вы не имеете прав на удаление пользователей!"
+
+#: task_manager/users/views.py
+msgid "User updated successfully!"
+msgstr "Пользователь изменен успешно!"
+
+#: task_manager/users/views.py
+msgid "You have no permission to edit users!"
+msgstr "Вы не имеете прав на изменение пользователей!"
+
+#: task_manager/utils.py
+msgid "You are not authorized, please log in!"
+msgstr "Вы не авторизованы, пожалуйста выполните вход!"
 
 #: templates/base.html
 msgid "Task Manager"
@@ -81,10 +93,14 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: templates/components/navbar.html
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/components/navbar.html
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/components/navbar.html templates/login.html
+#: templates/components/navbar.html templates/task_manager/users/login.html
 msgid "Login"
 msgstr "Вход"
 
@@ -100,50 +116,92 @@ msgstr "Привет"
 msgid "This is the simple task manager"
 msgstr "Это просто менеджер задач"
 
-#: templates/user_create.html
-msgid "Registration"
-msgstr "Регистрация"
+#: templates/task_manager/statuses/status_create.html
+msgid "Status creation"
+msgstr "Создание статуса"
 
-#: templates/user_create.html
-msgid "Register"
-msgstr "Зарегистрироваться"
+#: templates/task_manager/statuses/status_create.html
+msgid "Create"
+msgstr "Создать"
 
-#: templates/user_delete.html
-msgid "User delete"
+#: templates/task_manager/statuses/status_delete.html
+#, fuzzy
+#| msgid "User delete"
+msgid "Status delete"
 msgstr "Удалить пользователя"
 
-#: templates/user_delete.html
-msgid "Are you sure to delete"
-msgstr "Вы уверены, что хотите удалить"
+#: templates/task_manager/statuses/status_delete.html
+msgid "Are you sure to delete status"
+msgstr "Вы уверены, что хотите удалить статус"
 
-#: templates/user_delete.html
+#: templates/task_manager/statuses/status_delete.html
+#: templates/task_manager/users/user_delete.html
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: templates/user_list.html
-msgid "Username"
-msgstr "Имя пользователя"
+#: templates/task_manager/statuses/status_list.html
+msgid "Create status"
+msgstr "Создать статус"
 
-#: templates/user_list.html
-msgid "Full name"
-msgstr "Полное имя"
+#: templates/task_manager/statuses/status_list.html
+msgid "Name"
+msgstr "Название"
 
-#: templates/user_list.html
-msgid "Date of join"
+#: templates/task_manager/statuses/status_list.html
+#, fuzzy
+#| msgid "Date of join"
+msgid "Date of creation"
 msgstr "Дата регистрации"
 
-#: templates/user_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/users/user_list.html
 msgid "Change"
 msgstr "Изменить"
 
-#: templates/user_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/users/user_list.html
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/user_update.html
-msgid "User update"
+#: templates/task_manager/statuses/status_update.html
+#, fuzzy
+#| msgid "User update"
+msgid "Status update"
 msgstr "Изменение пользователя"
 
-#: templates/user_update.html
+#: templates/task_manager/statuses/status_update.html
+#: templates/task_manager/users/user_update.html
 msgid "Update"
 msgstr "Изменить"
+
+#: templates/task_manager/users/user_create.html
+msgid "Registration"
+msgstr "Регистрация"
+
+#: templates/task_manager/users/user_create.html
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: templates/task_manager/users/user_delete.html
+msgid "User delete"
+msgstr "Удалить пользователя"
+
+#: templates/task_manager/users/user_delete.html
+msgid "Are you sure to delete user"
+msgstr "Вы уверены, что хотите удалить пользователя"
+
+#: templates/task_manager/users/user_list.html
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/task_manager/users/user_list.html
+msgid "Full name"
+msgstr "Полное имя"
+
+#: templates/task_manager/users/user_list.html
+msgid "Date of join"
+msgstr "Дата регистрации"
+
+#: templates/task_manager/users/user_update.html
+msgid "User update"
+msgstr "Изменение пользователя"

@@ -13,7 +13,7 @@ class UserCrudTestCase(TestCase):
             user.set_password(user.password)
             user.save()
         
-        with open(os.path.join(settings.BASE_DIR, 'auth', 'fixtures', 'users.json')) as users_json:
+        with open(os.path.join(settings.BASE_DIR, 'task_manager', 'users', 'fixtures', 'users.json')) as users_json:
             users_fixtures_data = users_json.read()
 
         self.users_data = json.loads(users_fixtures_data)

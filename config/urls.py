@@ -7,5 +7,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', TemplateView.as_view(template_name="index.html"), name='index'),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('', include('auth.urls')),
+    path('', include('task_manager.urls')),
 ]
