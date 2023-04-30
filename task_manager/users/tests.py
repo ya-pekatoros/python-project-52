@@ -1,8 +1,9 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
 import json
 import os
 from django.conf import settings
+from django.contrib.auth.models import User
+
 
 class UserCrudTestCase(TestCase):
 
@@ -34,7 +35,7 @@ class UserCrudTestCase(TestCase):
             },
             follow=True
         )
-        self.assertContains(response, 'User registered successfully!', status_code=200)
+        self.assertContains(response, 'User has been registered successfully!', status_code=200)
         self.assertTrue(User.objects.filter(username="Testuser2").exists())
 
         response = self.client.post(
@@ -146,7 +147,7 @@ class UserCrudTestCase(TestCase):
             },
             follow=True
         )
-        self.assertContains(response, 'User updated successfully!', status_code=200)
+        self.assertContains(response, 'User has been updated successfully!', status_code=200)
         self.assertFalse(User.objects.filter(username="Testuser2").exists())
 
         self.client.login(
@@ -166,7 +167,7 @@ class UserCrudTestCase(TestCase):
             follow=True
         )
 
-        self.assertContains(response, 'User updated successfully!', status_code=200)
+        self.assertContains(response, 'User has been updated successfully!', status_code=200)
         self.assertFalse(User.objects.filter(username="Testuser2edit").exists())
 
     def test_delete_user(self):
@@ -181,7 +182,7 @@ class UserCrudTestCase(TestCase):
             password=self.users_data[1]['fields']['password']
         )
         response = self.client.post(request_url, follow=True)
-        self.assertContains(response, 'You cannot delete yourself!', status_code=200)
+        self.assertContains(response, 'You can not delete yourself!', status_code=200)
 
 
         user_2_id = User.objects.get(id=self.users_data[0]['pk']).id
@@ -194,7 +195,7 @@ class UserCrudTestCase(TestCase):
             password=self.users_data[0]['fields']['password']
         )
         response = self.client.post(request_url, {}, follow=True)
-        self.assertContains(response, 'User deleted successfully!', status_code=200)
+        self.assertContains(response, 'User has been deleted successfully!', status_code=200)
 
     def test_get_all_users(self):
 

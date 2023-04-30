@@ -1,6 +1,6 @@
 #development variables
 PORT ?= 8000
-DB_NAME = fourth-project
+DB_NAME = fourth-project-hexlet
 LOCAL_DB_USER = ypekatoros
 
 install:

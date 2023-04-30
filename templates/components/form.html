@@ -1,24 +1,40 @@
 <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <div class="form-group{% if form.errors %}{% if field.errors %} is-invalid{% else %}is-valid{% endif %}{% endif %}">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" maxlength="{{ field.field.max_length }}" {% if field.field.required %}required{% endif %} class="form-control {% if form.errors %} {% if field.errors %} is-invalid{% else %}is-valid{% endif %}{% endif %}" placeholder="{{ field.label }}" value="{% if field.value and not field.errors %}{{ field.value  }}{% endif %}" title="{{ field.help_text }}" id="{{ field.id_for_label }}">
-        {% if field.help_text %}
-          <small class="form-text text-muted">{{ field.help_text }}</small>
-          {% if field.errors %}
-            <div class="invalid-feedback">
-              <ul class="errorlist">
-                {% for error in field.errors %}
-                  <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
-        {% endif %}
-      </div>
-    {% endfor %}
-    <div class="form-group">
-      <input class="btn btn-primary mt-1" type="submit" value={{  submit_button_text  }}>
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="form-group{% if form.errors %}{% if field.errors %} is-invalid{% else %} is-valid{% endif %}{% endif %}">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {% if field.field.widget.input_type == 'select' %}
+        <select type="{{ field.field.widget.input_type }}" name="{{ field.name }}" {% if field.field.required %}required{% endif %} class="form-control" title="{{ field.help_text }}" id="{{ field.id_for_label }}">
+          {% for choice in field.field.choices %}
+            {% if field.value == choice.0 %}
+              <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
+            {% else %}
+              <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      {% elif field.field.widget.template_name == 'django/forms/widgets/textarea.html' %}
+        <textarea name="{{ field.name }}" maxlength="{{ field.field.max_length }}" {% if field.field.required %}required{% endif %} class="form-control {% if form.errors %} {% if field.errors %} is-invalid{% else %} is-valid{% endif %}{% endif %}" placeholder="{{ field.label }}" title="{{ field.help_text }}" id="{{ field.id_for_label }}">{% if field.value %}{{  field.value  }}{% endif %}</textarea>
+      {% else %}
+        <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" maxlength="{{ field.field.max_length }}" {% if field.field.required %}required{% endif %} class="form-control {% if form.errors %} {% if field.errors %} is-invalid{% else %} is-valid{% endif %}{% endif %}" placeholder="{{ field.label }}" value="{% if field.value and not field.errors %}{{ field.value }}{% endif %}" title="{{ field.help_text }}" id="{{ field.id_for_label }}">
+      {% endif %}
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+      {% if field.errors %}
+        <div class="invalid-feedback">
+          <ul class="errorlist">
+            {% for error in field.errors %}
+              {% if error != "" %}
+                <li>{{ error }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </div>
-  </form>
+  {% endfor %}
+  <div class="form-group">
+    <input class="btn btn-primary mt-1" type="submit" value="{{ submit_button_text }}">
+  </div>
+</form>

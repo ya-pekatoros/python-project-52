@@ -1,0 +1,24 @@
+[
+    {
+        "model": "tasks.task",
+        "pk": 1,
+        "fields": {
+            "name": "Test-task-1",
+            "author": 1,
+            "executor": 2,
+            "status": 1,
+            "created_at": "2021-05-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 2,
+        "fields": {
+            "name": "Test-task-2",
+            "author": 2,
+            "executor": 2,
+            "status": 2,
+            "created_at": "2021-05-01T00:00:00Z"
+        }
+    }
+]

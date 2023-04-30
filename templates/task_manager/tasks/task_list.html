@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <div class="mb-2">
+    <a href="{% url 'task-create' %}">{% translate "Create task" %}</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>{% translate "Name" %}</th>
+                <th>{% translate "Status" %}</th>
+                <th>{% translate "Author" %}</th>
+                <th>{% translate "Executor" %}</th>
+                <th>{% translate "Date of creation" %}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in object_list %}
+                <tr>
+                    <td>{{  task.id  }}</td>
+                    <td> 
+                        <a href="{% url 'task-detail' task.id %}">{{  task.name  }}</a>
+                    </td>
+                    <td>{{  task.status.name  }}</td>
+                    {% if task.author.first_name and task.author.last_name %}
+                    <td>{{  task.author.first_name  }} {{  task.author.last_name  }}</td>
+                    {% else %}
+                    <td>{{  task.author.username  }}</td>
+                    {% endif %}
+                    {% if task.executor.first_name and task.executor.last_name %}
+                    <td>{{  task.executor.first_name  }} {{  task.executor.last_name  }}</td>
+                    {% else %}
+                    <td>{{  task.executor.username  }}</td>
+                    {% endif %}
+                    <td>{{ task.created_at|date:"d.m.Y, H:i" }}</td>
+                    <td> 
+                        <a href="{% url 'task-update' task.id %}">{% translate "Change" %}</a>
+                        <br>
+                        <a href="{% url 'task-delete' task.id %}">{% translate "Delete" %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

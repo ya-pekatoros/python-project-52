@@ -1,7 +1,10 @@
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models.deletion import ProtectedError
 from django.utils.translation import gettext_lazy as _
+from django.contrib import messages
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from task_manager.utils import RedirectToLoginMixin
 
@@ -20,7 +23,7 @@ class StatusCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
     fields = ['name']
 
     success_url = reverse_lazy('statuses')
-    success_message = _('Status created successfully!')
+    success_message = _('Status has been created successfully!')
 
     template_name = 'task_manager/statuses/status_create.html'
 
@@ -28,13 +31,16 @@ class StatusCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
 class StatusDeleteView(RedirectToLoginMixin, SuccessMessageMixin, DeleteView):
     model = Status
     success_url = reverse_lazy('statuses')
-    success_message = _('Status deleted successfully!')
+    success_message = _('Status has been deleted successfully!')
     template_name = 'task_manager/statuses/status_delete.html'
 
-    def post(self, request, *args, **kwargs):
-        # проверка на то, что у статуса нет связанных задач!
-        return super().post(request, *args, **kwargs)
 
+    def form_valid(self, form):
+        try:
+            return super().form_valid(form)
+        except ProtectedError:
+            messages.error(self.request, _('You can not delete the status that is assigned to the task!'))
+            return redirect(reverse_lazy('statuses'))
 
 class StatusUpdateView(RedirectToLoginMixin, SuccessMessageMixin, UpdateView):
     model = Status
@@ -42,6 +48,6 @@ class StatusUpdateView(RedirectToLoginMixin, SuccessMessageMixin, UpdateView):
     fields = ['name']
 
     success_url = reverse_lazy('statuses')
-    success_message = _('Status updated successfully!')
+    success_message = _('Status has been updated successfully!')
 
     template_name = 'task_manager/statuses/status_update.html'

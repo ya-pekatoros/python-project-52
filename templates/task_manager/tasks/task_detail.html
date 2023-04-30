@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <h1 class="my-4">{% translate "Task view" %}</h1>
+<div class="card">
+    <div class="card-header bg-secondary text-white">
+        <h2>{{ object.name }}</h2>
+        </div>
+        <div class="card-body bg-light">
+          <p>{{ object.description }}</p>
+          <hr>
+          <div class="container">
+            <div class="row p-1">
+              <div class="col">{% translate "Author" %}</div>
+              {% if object.author.first_name and object.author.last_name %}
+                <div class="col">{{ object.author.first_name }} {{ object.author.last_name }}</div>
+              {% else %}
+                <div class="col">{{ object.author.username }}</div>
+              {% endif %}
+            </div>
+            <div class="row p-1">
+              <div class="col">{% translate "Executor" %}</div>
+              {% if object.executor.first_name and object.executor.last_name %}
+                <div class="col">{{ object.executor.first_name }} {{ object.executor.last_name }}</div>
+              {% else %}
+               <div class="col">{{ object.executor.username }}</div>
+              {% endif %}
+            </div>
+            <div class="row p-1">
+              <div class="col">{% translate "Status" %}</div>
+              <div class="col">{{ object.status.name }}</div>
+            </div>
+            <div class="row p-1">
+              <div class="col">{% translate "Date of creation" %}</div>
+              <div class="col">{{ object.created_at|date:"d.m.Y, H:i" }}</div>
+            </div>
+            <div class="row p-1">
+              <div class="col">
+                <h6>{% translate "Labels" %}</h6>
+                <ul>
+                    {% if object.labels %}
+                    {% for label in object.labels %}
+                        <li>{{ label.name }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+            <div class="row p-1">
+              <div class="col">
+                <a href="{% url 'task-update' object.id %}">{% translate "Change" %}</a>
+                <br>
+                <a href="{% url 'task-delete' object.id %}">{% translate "Delete" %}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

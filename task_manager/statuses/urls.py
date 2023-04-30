@@ -5,6 +5,5 @@ urlpatterns = [
     path("status/<int:pk>/delete/", StatusDeleteView.as_view(), name="status-delete"),
     path("status/<int:pk>/update/", StatusUpdateView.as_view(), name="status-update"),
     path("statuses/", StatusListView.as_view(), name='statuses'),
-    path("status/create/", StatusCreateView.as_view(), name="status-create"),
-
+    path("status/create/", StatusCreateView.as_view(), name="status-create")
 ]
