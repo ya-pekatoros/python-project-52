@@ -29,12 +29,20 @@ class TaskCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        # status = form.cleaned_data['status']
+        # form.fields['status'].value = status.id
+        # executor = form.cleaned_data['executor']
+        # form.fields['executor'].value = executor.id
         form.save()
         return super().form_valid(form)
     
     def form_invalid(self, form):
         response = super().form_invalid(form)
         response.status_code = 400
+        # status = form.cleaned_data['status']
+        # form.fields['status'].widget.attrs['value'] = status.id
+        # executor = form.cleaned_data['executor']
+        # form.fields['executor'].widget.attrs['value'] = executor.id
         return response
 
 class TaskDeleteView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMessageMixin, DeleteView):

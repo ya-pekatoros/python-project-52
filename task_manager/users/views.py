@@ -2,7 +2,9 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
+from django.db.models.deletion import ProtectedError
 from django.contrib.auth import logout
+from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -68,6 +70,12 @@ class UserDeleteView(SuccessMessageMixin, RedirectToLoginMixin, DeleteView):
             return HttpResponseRedirect(reverse("users"))
         return super().post(request, *args, **kwargs)
 
+    def form_valid(self, form):
+        try:
+            return super().form_valid(form)
+        except ProtectedError:
+            messages.error(self.request, _('You can not delete the user who is connected to the task!'))
+            return redirect(reverse_lazy('users'))
 
 class UserUpdateView(SuccessMessageMixin, RedirectToLoginMixin, InvalidUpdateCreateMixin, UpdateView):
     model = User

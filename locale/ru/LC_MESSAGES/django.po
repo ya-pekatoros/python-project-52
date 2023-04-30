@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 11:37+0300\n"
+"POT-Creation-Date: 2023-04-30 11:49+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr "Статус удален успешно!"
 
 #: task_manager/statuses/views.py
 msgid "You can not delete the status that is assigned to the task!"
-msgstr "Вы не можете удалить статус, назначенный задача"
+msgstr "Вы не можете удалить статус, назначенный задаче"
 
 #: task_manager/statuses/views.py
 msgid "Status has been updated successfully!"
@@ -50,11 +50,11 @@ msgstr "Задача с таким именем уже существует"
 
 #: task_manager/tasks/views.py
 msgid "Task has been created successfully!"
-msgstr "Статус создан успешно!"
+msgstr "Задача создана успешно!"
 
 #: task_manager/tasks/views.py
 msgid "Task has been deleted successfully!"
-msgstr "Статус удален успешно!"
+msgstr "Задача удалена успешно!"
 
 #: task_manager/tasks/views.py
 msgid "Only author of the task can delete it!"
@@ -62,7 +62,7 @@ msgstr "Только автор задачи может ее удалить"
 
 #: task_manager/tasks/views.py
 msgid "Task has been updated successfully!"
-msgstr "Стутс изменен успешно!"
+msgstr "Задача изменена успешно!"
 
 #: task_manager/tasks/views.py
 msgid "Only author of the task can edit it!"
@@ -99,6 +99,10 @@ msgstr "Вы не можете удалить себя!"
 #: task_manager/users/views.py
 msgid "You have no permission to delete users!"
 msgstr "Вы не имеете прав на удаление пользователей!"
+
+#: task_manager/users/views.py
+msgid "You can not delete the user who is connected to the task!"
+msgstr "Вы не можете удалить пользователя, связанного с задачей"
 
 #: task_manager/users/views.py
 msgid "User has been updated successfully!"

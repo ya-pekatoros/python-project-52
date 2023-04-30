@@ -6,7 +6,7 @@
       {% if field.field.widget.input_type == 'select' %}
         <select type="{{ field.field.widget.input_type }}" name="{{ field.name }}" {% if field.field.required %}required{% endif %} class="form-control" title="{{ field.help_text }}" id="{{ field.id_for_label }}">
           {% for choice in field.field.choices %}
-            {% if field.value == choice.0 %}
+            {% if field.value|stringformat:"s" == choice.0|stringformat:"s" %}
               <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
             {% else %}
               <option value="{{ choice.0 }}">{{ choice.1 }}</option>
