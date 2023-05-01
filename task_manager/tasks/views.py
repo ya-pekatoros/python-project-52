@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from task_manager.utils import RedirectToLoginMixin
 
 from .models import Task
-from .forms import TaskCreateUpdateForm
+from .forms import TaskUpdateCreateForm
 from .mixins import RestrictToNonAuthorMixin
 
 
@@ -20,7 +20,7 @@ class TaskListView(RedirectToLoginMixin, ListView):
 class TaskCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
     model = Task
 
-    form_class = TaskCreateUpdateForm
+    form_class = TaskUpdateCreateForm
 
     success_url = reverse_lazy('tasks')
     success_message = _('Task has been created successfully!')
@@ -29,20 +29,12 @@ class TaskCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        # status = form.cleaned_data['status']
-        # form.fields['status'].value = status.id
-        # executor = form.cleaned_data['executor']
-        # form.fields['executor'].value = executor.id
         form.save()
         return super().form_valid(form)
     
     def form_invalid(self, form):
         response = super().form_invalid(form)
         response.status_code = 400
-        # status = form.cleaned_data['status']
-        # form.fields['status'].widget.attrs['value'] = status.id
-        # executor = form.cleaned_data['executor']
-        # form.fields['executor'].widget.attrs['value'] = executor.id
         return response
 
 class TaskDeleteView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMessageMixin, DeleteView):
@@ -56,7 +48,7 @@ class TaskDeleteView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMess
 class TaskUpdateView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMessageMixin, UpdateView):
     model = Task
 
-    fields = ['name', 'description', 'status', 'executor']
+    form_class = TaskUpdateCreateForm
 
     success_url = reverse_lazy('tasks')
     success_message = _('Task has been updated successfully!')
@@ -65,10 +57,14 @@ class TaskUpdateView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMess
 
     restrict_message = _('Only author of the task can edit it!')
 
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        response.status_code = 400
+        return response
 
 class TaskDetailView(RedirectToLoginMixin, DetailView):
     model = Task
 
-    fields = ['name', 'description', 'status', 'author', 'created_at', 'executor']
+    fields = ['name', 'description', 'status', 'author', 'created_at', 'executor', 'labels']
 
     template_name = 'task_manager/tasks/task_detail.html'

@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from task_manager.utils import RedirectToLoginMixin
 
 from .models import Status
+from .forms import StatusUpdateCreateForm
 
 
 class StatusListView(RedirectToLoginMixin, ListView):
@@ -20,13 +21,17 @@ class StatusListView(RedirectToLoginMixin, ListView):
 class StatusCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
     model = Status
 
-    fields = ['name']
+    form_class = StatusUpdateCreateForm
 
     success_url = reverse_lazy('statuses')
     success_message = _('Status has been created successfully!')
 
     template_name = 'task_manager/statuses/status_create.html'
 
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        response.status_code = 400
+        return response
 
 class StatusDeleteView(RedirectToLoginMixin, SuccessMessageMixin, DeleteView):
     model = Status
@@ -45,9 +50,14 @@ class StatusDeleteView(RedirectToLoginMixin, SuccessMessageMixin, DeleteView):
 class StatusUpdateView(RedirectToLoginMixin, SuccessMessageMixin, UpdateView):
     model = Status
 
-    fields = ['name']
+    form_class = StatusUpdateCreateForm
 
     success_url = reverse_lazy('statuses')
     success_message = _('Status has been updated successfully!')
 
     template_name = 'task_manager/statuses/status_update.html'
+
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        response.status_code = 400
+        return response

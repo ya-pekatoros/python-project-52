@@ -7,6 +7,7 @@
             "author": 1,
             "executor": 2,
             "status": 1,
+            "labels": [1, 2],
             "created_at": "2021-05-01T00:00:00Z"
         }
     },

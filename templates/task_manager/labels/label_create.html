@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <h1 class="my-4">{% translate "Label creation" %}</h1>
+    {% with submit_button_text=_("Create") %}
+      {% include 'components/form.html' %}
+    {% endwith %}
+{% endblock content %}

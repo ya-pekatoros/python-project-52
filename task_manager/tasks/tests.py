@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 class TasksCrudTestCase(TestCase):
 
-    fixtures = ["users", "statuses", "tasks"]
+    fixtures = ["users", "statuses", "labels", "tasks"]
 
     def setUp(self):
         for user in User.objects.all():
@@ -94,7 +94,8 @@ class TasksCrudTestCase(TestCase):
                 'name': "Test-task-1-edited",
                 'description': 'Test descriptrion',
                 'status': 1,
-                'executor': 2
+                'executor': 2,
+                'labels': [1, 2]
             },
             follow=True
         )

@@ -39,7 +39,7 @@
                 <h6>{% translate "Labels" %}</h6>
                 <ul>
                     {% if object.labels %}
-                    {% for label in object.labels %}
+                    {% for label in object.labels.all %}
                         <li>{{ label.name }}</li>
                     {% endfor %}
                     {% endif %}

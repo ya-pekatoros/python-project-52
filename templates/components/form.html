@@ -4,15 +4,11 @@
     <div class="form-group{% if form.errors %}{% if field.errors %} is-invalid{% else %} is-valid{% endif %}{% endif %}">
       <label for="{{ field.id_for_label }}">{{ field.label }}</label>
       {% if field.field.widget.input_type == 'select' %}
-        <select type="{{ field.field.widget.input_type }}" name="{{ field.name }}" {% if field.field.required %}required{% endif %} class="form-control" title="{{ field.help_text }}" id="{{ field.id_for_label }}">
+        <select {% if field.field.widget.allow_multiple_selected %}multiple{% endif %} type="{{ field.field.widget.input_type }}" name="{{ field.name }}" {% if field.field.required %}required{% endif %} class="form-control" title="{{ field.help_text }}" id="{{ field.id_for_label }}">
           {% for choice in field.field.choices %}
-            {% if field.value|stringformat:"s" == choice.0|stringformat:"s" %}
-              <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
-            {% else %}
-              <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-            {% endif %}
+              <option value="{{ choice.0 }}"{% if field.value|stringformat:"s" == choice.0|stringformat:"s" or choice.0 in field.value %}selected{% endif %}>{{ choice.1 }}</option>
           {% endfor %}
-        </select>
+        </select>     
       {% elif field.field.widget.template_name == 'django/forms/widgets/textarea.html' %}
         <textarea name="{{ field.name }}" maxlength="{{ field.field.max_length }}" {% if field.field.required %}required{% endif %} class="form-control {% if form.errors %} {% if field.errors %} is-invalid{% else %} is-valid{% endif %}{% endif %}" placeholder="{{ field.label }}" title="{{ field.help_text }}" id="{{ field.id_for_label }}">{% if field.value %}{{  field.value  }}{% endif %}</textarea>
       {% else %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 11:49+0300\n"
+"POT-Creation-Date: 2023-05-01 16:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,37 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
+#: task_manager/labels/forms.py task_manager/statuses/forms.py
+#: task_manager/tasks/forms.py templates/task_manager/labels/label_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/tasks/task_list.html
+msgid "Name"
+msgstr "Название"
+
+#: task_manager/labels/forms.py
+msgid "A label with that name already exists."
+msgstr "Метка с таким именем уже существует"
+
+#: task_manager/labels/views.py
+msgid "Label has been created successfully!"
+msgstr "Метка создана успешно!"
+
+#: task_manager/labels/views.py
+msgid "Label has been deleted successfully!"
+msgstr "Метка удалена успешно!"
+
+#: task_manager/labels/views.py
+msgid "You can not delete the Label that is assigned to the task!"
+msgstr "Вы не можете удалить метку, назначенную задаче"
+
+#: task_manager/labels/views.py
+msgid "Label has been updated successfully!"
+msgstr "Метка изменена успешно!"
+
+#: task_manager/statuses/forms.py
+msgid "A status with that name already exists."
+msgstr "Статус с таким именем уже существует"
+
 #: task_manager/statuses/views.py
 msgid "Status has been created successfully!"
 msgstr "Статус создан успешно!"
@@ -43,6 +74,25 @@ msgstr "Вы не можете удалить статус, назначенны
 #: task_manager/statuses/views.py
 msgid "Status has been updated successfully!"
 msgstr "Стутс изменен успешно!"
+
+#: task_manager/tasks/forms.py
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/forms.py templates/task_manager/tasks/task_detail.html
+#: templates/task_manager/tasks/task_list.html
+msgid "Status"
+msgstr "Статусы"
+
+#: task_manager/tasks/forms.py templates/task_manager/tasks/task_detail.html
+#: templates/task_manager/tasks/task_list.html
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: task_manager/tasks/forms.py templates/components/navbar.html
+#: templates/task_manager/tasks/task_detail.html
+msgid "Labels"
+msgstr "Метки"
 
 #: task_manager/tasks/forms.py
 msgid "A task with that name already exists."
@@ -156,14 +206,72 @@ msgstr "Привет"
 msgid "This is the simple task manager"
 msgstr "Это просто менеджер задач"
 
-#: templates/task_manager/statuses/status_create.html
-msgid "Status creation"
-msgstr "Создание статуса"
+#: templates/task_manager/labels/label_create.html
+msgid "Label creation"
+msgstr "Создание метки"
 
+#: templates/task_manager/labels/label_create.html
 #: templates/task_manager/statuses/status_create.html
 #: templates/task_manager/tasks/task_create.html
 msgid "Create"
 msgstr "Создать"
+
+#: templates/task_manager/labels/label_delete.html
+msgid "Label delete"
+msgstr "Удаление метки"
+
+#: templates/task_manager/labels/label_delete.html
+msgid "Are you sure to delete label"
+msgstr "Вы уверены, что хотите удалить метку"
+
+#: templates/task_manager/labels/label_delete.html
+#: templates/task_manager/statuses/status_delete.html
+#: templates/task_manager/tasks/task_delete.html
+#: templates/task_manager/users/user_delete.html
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: templates/task_manager/labels/label_list.html
+msgid "Create label"
+msgstr "Создать метку"
+
+#: templates/task_manager/labels/label_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/tasks/task_detail.html
+#: templates/task_manager/tasks/task_list.html
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: templates/task_manager/labels/label_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/tasks/task_detail.html
+#: templates/task_manager/tasks/task_list.html
+#: templates/task_manager/users/user_list.html
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/task_manager/labels/label_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/tasks/task_detail.html
+#: templates/task_manager/tasks/task_list.html
+#: templates/task_manager/users/user_list.html
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/task_manager/labels/label_update.html
+msgid "Label update"
+msgstr "Изменение метки"
+
+#: templates/task_manager/labels/label_update.html
+#: templates/task_manager/statuses/status_update.html
+#: templates/task_manager/tasks/task_update.html
+#: templates/task_manager/users/user_update.html
+msgid "Update"
+msgstr "Изменить"
+
+#: templates/task_manager/statuses/status_create.html
+msgid "Status creation"
+msgstr "Создание статуса"
 
 #: templates/task_manager/statuses/status_delete.html
 msgid "Status delete"
@@ -173,50 +281,13 @@ msgstr "Удалить статус"
 msgid "Are you sure to delete status"
 msgstr "Вы уверены, что хотите удалить статус"
 
-#: templates/task_manager/statuses/status_delete.html
-#: templates/task_manager/tasks/task_delete.html
-#: templates/task_manager/users/user_delete.html
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
 #: templates/task_manager/statuses/status_list.html
 msgid "Create status"
 msgstr "Создать статус"
 
-#: templates/task_manager/statuses/status_list.html
-#: templates/task_manager/tasks/task_list.html
-msgid "Name"
-msgstr "Название"
-
-#: templates/task_manager/statuses/status_list.html
-#: templates/task_manager/tasks/task_detail.html
-#: templates/task_manager/tasks/task_list.html
-msgid "Date of creation"
-msgstr "Дата создания"
-
-#: templates/task_manager/statuses/status_list.html
-#: templates/task_manager/tasks/task_detail.html
-#: templates/task_manager/tasks/task_list.html
-#: templates/task_manager/users/user_list.html
-msgid "Change"
-msgstr "Изменить"
-
-#: templates/task_manager/statuses/status_list.html
-#: templates/task_manager/tasks/task_detail.html
-#: templates/task_manager/tasks/task_list.html
-#: templates/task_manager/users/user_list.html
-msgid "Delete"
-msgstr "Удалить"
-
 #: templates/task_manager/statuses/status_update.html
 msgid "Status update"
 msgstr "Изменение статуса"
-
-#: templates/task_manager/statuses/status_update.html
-#: templates/task_manager/tasks/task_update.html
-#: templates/task_manager/users/user_update.html
-msgid "Update"
-msgstr "Изменить"
 
 #: templates/task_manager/tasks/task_create.html
 msgid "Task creation"
@@ -238,20 +309,6 @@ msgstr "Просмотр задачи"
 #: templates/task_manager/tasks/task_list.html
 msgid "Author"
 msgstr "Автор"
-
-#: templates/task_manager/tasks/task_detail.html
-#: templates/task_manager/tasks/task_list.html
-msgid "Executor"
-msgstr "Исполнитель"
-
-#: templates/task_manager/tasks/task_detail.html
-#: templates/task_manager/tasks/task_list.html
-msgid "Status"
-msgstr "Статусы"
-
-#: templates/task_manager/tasks/task_detail.html
-msgid "Labels"
-msgstr "Метки"
 
 #: templates/task_manager/tasks/task_list.html
 msgid "Create task"
