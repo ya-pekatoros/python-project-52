@@ -1,4 +1,5 @@
 from django.views.generic.list import ListView
+from django_filters.views import FilterView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -9,10 +10,12 @@ from task_manager.utils import RedirectToLoginMixin
 from .models import Task
 from .forms import TaskUpdateCreateForm
 from .mixins import RestrictToNonAuthorMixin
+from .filter import TaskFilter
 
 
-class TaskListView(RedirectToLoginMixin, ListView):
-    model = Task
+class TaskListView(RedirectToLoginMixin, FilterView):
+
+    filterset_class = TaskFilter
 
     template_name = 'task_manager/tasks/task_list.html'
 

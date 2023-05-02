@@ -27,4 +27,7 @@
             {% endfor %}
         </tbody>
     </table>
+    {% if not object_list %}
+        <div class="text-center">{% translate "Nothing found" %}</div>
+    {% endif %}
 {% endblock content %}

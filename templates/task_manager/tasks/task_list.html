@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
+    {% with submit_button_text=_("Apply") form=filter.form method="get" %}
+    <div class="col-lg-3 col-md-6">
+    {% include 'components/form.html' %}
+    </div>
+    {% endwith %}
     <div class="mb-2">
     <a href="{% url 'task-create' %}">{% translate "Create task" %}</a>
     </div>
@@ -44,4 +49,7 @@
             {% endfor %}
         </tbody>
     </table>
+    {% if not object_list %}
+        <div class="text-center">{% translate "Nothing found" %}</div>
+    {% endif %}
 {% endblock content %}

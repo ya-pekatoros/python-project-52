@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
     <h1 class="my-4">{% translate "Registration" %}</h1>
-    {% with submit_button_text=_("Register") %}
+    {% with submit_button_text=_("Register") form=form method="post" %}
       {% include 'components/form.html' %}
     {% endwith %}
 {% endblock content %}

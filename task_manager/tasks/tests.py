@@ -164,3 +164,17 @@ class TasksCrudTestCase(TestCase):
         response = self.client.get('/tasks/')
         self.assertContains(response, self.tasks_data[0]['fields']['name'], status_code=200)
         self.assertContains(response, self.tasks_data[1]['fields']['name'])
+
+        self.client.login(
+            username=self.users_data[0]['fields']['username'],
+            password=self.users_data[0]['fields']['password']
+        )
+
+        response = self.client.get('/tasks/', {'status': '1', 'executor': '2', 'labels': '1', 'my_tasks': 'on'})
+
+        self.assertContains(response, self.tasks_data[0]['fields']['name'])
+        self.assertNotContains(response, self.tasks_data[1]['fields']['name'])
+
+        response = self.client.get('/tasks/', {'status': 1, 'executor': 1, 'labels': 1, 'my_tasks': 'on'})
+
+        self.assertContains(response, 'Nothing found')
