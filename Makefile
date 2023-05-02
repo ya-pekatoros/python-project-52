@@ -61,6 +61,7 @@ lint:
 
 test:
 		poetry run coverage run --source='.' manage.py test
+		poetry run coverage report
 
 transprepare:
 		poetry run django-admin makemessages --locale ru --add-location file
