@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -128,7 +129,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+ROLLBAR = {
+    'access_token': os.environ["ROLLBAR_ACCESS_TOKEN"],
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'main',
+    'root': BASE_DIR,
+}
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
