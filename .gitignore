@@ -12,6 +12,5 @@ htmlcov/
 .python-version
 *.sqlite3
 *.bak
-*.mo
 .coverage
 env/
