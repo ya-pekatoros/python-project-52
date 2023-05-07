@@ -24,7 +24,7 @@ class TaskUpdateCreateForm(forms.ModelForm):
 
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),
-        required=True,  
+        required=True,
         widget=forms.Select(),
         label=_('Status')
     )
@@ -46,7 +46,7 @@ class TaskUpdateCreateForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         name = cleaned_data.get('name')
-        if(
+        if (
             Task.objects.filter(name=name).exists()
             and self.instance.name != name
         ):

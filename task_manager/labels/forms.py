@@ -17,7 +17,7 @@ class LabelUpdateCreateForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         name = cleaned_data.get('name')
-        if(
+        if (
             Label.objects.filter(name=name).exists()
             and self.instance.name != name
         ):

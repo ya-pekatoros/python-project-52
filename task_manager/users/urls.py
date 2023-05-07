@@ -1,5 +1,12 @@
 from django.urls import path
-from .views import UserListView, UserCreateView, UserLoginView, logout_view, UserDeleteView, UserUpdateView
+from .views import (
+    UserListView,
+    UserCreateView,
+    UserLoginView,
+    logout_view,
+    UserDeleteView,
+    UserUpdateView
+)
 
 urlpatterns = [
     path("users/<int:pk>/delete/", UserDeleteView.as_view(), name="user-delete"),

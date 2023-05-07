@@ -14,7 +14,7 @@ class LabelsCrudTestCase(TestCase):
         for user in User.objects.all():
             user.set_password(user.password)
             user.save()
-        
+
         with open(
             os.path.join(
                 settings.BASE_DIR,
@@ -92,7 +92,11 @@ class LabelsCrudTestCase(TestCase):
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Yes, delete', status_code=200)
         response = self.client.post(request_url, follow=True)
-        self.assertContains(response, 'You can not delete the Label that is assigned to the task!', status_code=200)
+        self.assertContains(
+            response,
+            'You can not delete the Label that is assigned to the task!',
+            status_code=200
+        )
 
         status_id = Label.objects.get(id=self.labels_data[2]['pk']).id
         request_url = '/label/' + str(status_id) + '/delete/'

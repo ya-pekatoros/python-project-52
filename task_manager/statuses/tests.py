@@ -14,7 +14,7 @@ class StatusCrudTestCase(TestCase):
         for user in User.objects.all():
             user.set_password(user.password)
             user.save()
-        
+
         with open(
             os.path.join(
                 settings.BASE_DIR,
@@ -92,7 +92,11 @@ class StatusCrudTestCase(TestCase):
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Yes, delete', status_code=200)
         response = self.client.post(request_url, follow=True)
-        self.assertContains(response, 'You can not delete the status that is assigned to the task!', status_code=200)
+        self.assertContains(
+            response,
+            'You can not delete the status that is assigned to the task!',
+            status_code=200
+        )
 
         status_id = Status.objects.get(id=self.statuses_data[2]['pk']).id
         request_url = '/status/' + str(status_id) + '/delete/'
@@ -100,7 +104,9 @@ class StatusCrudTestCase(TestCase):
         response = self.client.post(request_url, follow=True)
         self.assertContains(response, 'Status has been deleted successfully!', status_code=200)
 
-        self.assertFalse(Status.objects.filter(name=self.statuses_data[2]['fields']['name']).exists())
+        self.assertFalse(
+            Status.objects.filter(name=self.statuses_data[2]['fields']['name']).exists()
+        )
 
     def test_get_all_tasks(self):
 

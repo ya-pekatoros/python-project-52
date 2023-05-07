@@ -32,11 +32,13 @@ SECRET_KEY = 'django-insecure-*+5g7dp*+d3vbkmo)+j44mkb6-734ziaq8+)8(mdl7=td^%syo
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*',
     'webserver',
     'localhost',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://python-project-52-production-bf42.up.railway.app',
+]
 
 # Application definition
 
@@ -66,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 

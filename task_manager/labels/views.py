@@ -40,13 +40,16 @@ class LabelDeleteView(RedirectToLoginMixin, SuccessMessageMixin, DeleteView):
     success_message = _('Label has been deleted successfully!')
     template_name = 'task_manager/labels/label_delete.html'
 
-
     def form_valid(self, form):
         try:
             return super().form_valid(form)
         except ProtectedError:
-            messages.error(self.request, _('You can not delete the Label that is assigned to the task!'))
+            messages.error(
+                self.request,
+                _('You can not delete the Label that is assigned to the task!')
+            )
             return redirect(reverse_lazy('labels'))
+
 
 class LabelUpdateView(RedirectToLoginMixin, SuccessMessageMixin, UpdateView):
     model = Label

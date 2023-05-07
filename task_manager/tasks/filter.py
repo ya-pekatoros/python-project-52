@@ -5,7 +5,6 @@ from .models import Task
 
 class TaskFilter(FilterSet):
 
-
     my_tasks = BooleanFilter(
         label='Only my tasks',
         method='filter_my_tasks',

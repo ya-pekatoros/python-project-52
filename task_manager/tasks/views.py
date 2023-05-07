@@ -1,4 +1,3 @@
-from django.views.generic.list import ListView
 from django_filters.views import FilterView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
@@ -34,13 +33,19 @@ class TaskCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
         form.instance.author = self.request.user
         form.save()
         return super().form_valid(form)
-    
+
     def form_invalid(self, form):
         response = super().form_invalid(form)
         response.status_code = 400
         return response
 
-class TaskDeleteView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMessageMixin, DeleteView):
+
+class TaskDeleteView(
+    RedirectToLoginMixin,
+    RestrictToNonAuthorMixin,
+    SuccessMessageMixin,
+    DeleteView
+):
     model = Task
     success_url = reverse_lazy('tasks')
     success_message = _('Task has been deleted successfully!')
@@ -48,7 +53,12 @@ class TaskDeleteView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMess
     restrict_message = _('Only author of the task can delete it!')
 
 
-class TaskUpdateView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMessageMixin, UpdateView):
+class TaskUpdateView(
+    RedirectToLoginMixin,
+    RestrictToNonAuthorMixin,
+    SuccessMessageMixin,
+    UpdateView
+):
     model = Task
 
     form_class = TaskUpdateCreateForm
@@ -64,6 +74,7 @@ class TaskUpdateView(RedirectToLoginMixin, RestrictToNonAuthorMixin, SuccessMess
         response = super().form_invalid(form)
         response.status_code = 400
         return response
+
 
 class TaskDetailView(RedirectToLoginMixin, DetailView):
     model = Task

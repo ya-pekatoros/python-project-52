@@ -13,8 +13,14 @@ class UserCrudTestCase(TestCase):
         for user in User.objects.all():
             user.set_password(user.password)
             user.save()
-        
-        with open(os.path.join(settings.BASE_DIR, 'task_manager', 'users', 'fixtures', 'users.json')) as users_json:
+
+        with open(os.path.join(
+            settings.BASE_DIR,
+            'task_manager',
+            'users',
+            'fixtures',
+            'users.json'
+        )) as users_json:
             users_fixtures_data = users_json.read()
 
         self.users_data = json.loads(users_fixtures_data)
@@ -63,7 +69,11 @@ class UserCrudTestCase(TestCase):
             follow=True
         )
         self.assertContains(response, 'The two password fields didn’t match.', status_code=400)
-        self.assertContains(response, 'only letters, numbers, and @/./+/-/_ characters.', status_code=400)
+        self.assertContains(
+            response,
+            'only letters, numbers, and @/./+/-/_ characters.',
+            status_code=400
+        )
 
         response = self.client.post(
             '/users/create/',
@@ -85,7 +95,7 @@ class UserCrudTestCase(TestCase):
         self.assertContains(response, 'his password is entirely numeric.', status_code=400)
 
     def test_login(self):
-        
+
         response = self.client.post(
             '/login/',
             {
@@ -132,7 +142,7 @@ class UserCrudTestCase(TestCase):
         )
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'You have no permission to edit users!', status_code=200)
-        
+
         user_id = User.objects.get(id=self.users_data[1]['pk']).id
         request_url = '/users/' + str(user_id) + '/update/'
 
@@ -183,7 +193,6 @@ class UserCrudTestCase(TestCase):
         )
         response = self.client.post(request_url, follow=True)
         self.assertContains(response, 'You can not delete yourself!', status_code=200)
-
 
         user_2_id = User.objects.get(id=self.users_data[0]['pk']).id
         request_url_2 = '/users/' + str(user_2_id) + '/delete/'

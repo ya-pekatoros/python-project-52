@@ -14,7 +14,7 @@ class TasksCrudTestCase(TestCase):
         for user in User.objects.all():
             user.set_password(user.password)
             user.save()
-        
+
         with open(
             os.path.join(
                 settings.BASE_DIR,
@@ -81,10 +81,9 @@ class TasksCrudTestCase(TestCase):
         task_id = Task.objects.get(id=self.tasks_data[0]['pk']).id
         request_url = '/task/' + str(task_id) + '/update/'
 
-
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Only author of the task can edit it!', status_code=200)
-        
+
         task_id = Task.objects.get(id=self.tasks_data[1]['pk']).id
         request_url = '/task/' + str(task_id) + '/update/'
 
@@ -130,7 +129,6 @@ class TasksCrudTestCase(TestCase):
         response = self.client.post(request_url, follow=True)
         self.assertContains(response, 'Only author of the task can delete it!', status_code=200)
 
-
         task_id = Task.objects.get(id=self.tasks_data[1]['pk']).id
         request_url = '/task/' + str(task_id) + '/delete/'
 
@@ -158,7 +156,6 @@ class TasksCrudTestCase(TestCase):
 
         self.assertFalse(Task.objects.filter(name=self.tasks_data[1]['fields']['name']).exists())
 
-
     def test_get_all_tasks(self):
 
         response = self.client.get('/tasks/')
@@ -170,11 +167,17 @@ class TasksCrudTestCase(TestCase):
             password=self.users_data[0]['fields']['password']
         )
 
-        response = self.client.get('/tasks/', {'status': '1', 'executor': '2', 'labels': '1', 'my_tasks': 'on'})
+        response = self.client.get(
+            '/tasks/',
+            {'status': '1', 'executor': '2', 'labels': '1', 'my_tasks': 'on'}
+        )
 
         self.assertContains(response, self.tasks_data[0]['fields']['name'])
         self.assertNotContains(response, self.tasks_data[1]['fields']['name'])
 
-        response = self.client.get('/tasks/', {'status': 1, 'executor': 1, 'labels': 1, 'my_tasks': 'on'})
+        response = self.client.get(
+            '/tasks/',
+            {'status': 1, 'executor': 1, 'labels': 1, 'my_tasks': 'on'}
+        )
 
         self.assertContains(response, 'Nothing found')

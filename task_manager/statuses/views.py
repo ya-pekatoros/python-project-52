@@ -33,19 +33,23 @@ class StatusCreateView(RedirectToLoginMixin, SuccessMessageMixin, CreateView):
         response.status_code = 400
         return response
 
+
 class StatusDeleteView(RedirectToLoginMixin, SuccessMessageMixin, DeleteView):
     model = Status
     success_url = reverse_lazy('statuses')
     success_message = _('Status has been deleted successfully!')
     template_name = 'task_manager/statuses/status_delete.html'
 
-
     def form_valid(self, form):
         try:
             return super().form_valid(form)
         except ProtectedError:
-            messages.error(self.request, _('You can not delete the status that is assigned to the task!'))
+            messages.error(
+                self.request,
+                _('You can not delete the status that is assigned to the task!')
+            )
             return redirect(reverse_lazy('statuses'))
+
 
 class StatusUpdateView(RedirectToLoginMixin, SuccessMessageMixin, UpdateView):
     model = Status

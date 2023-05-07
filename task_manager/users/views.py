@@ -15,6 +15,7 @@ from task_manager.utils import RedirectToLoginMixin
 from .forms import ResistrationForm, UserUpdateForm
 from .mixins import InvalidUpdateCreateMixin
 
+
 class UserListView(ListView):
     model = User
 
@@ -48,6 +49,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
         response.status_code = 400
         return response
 
+
 def logout_view(request):
     logout(request)
     messages.add_message(request, messages.INFO, _('Logout successful!'))
@@ -66,7 +68,11 @@ class UserDeleteView(SuccessMessageMixin, RedirectToLoginMixin, DeleteView):
             messages.add_message(request, messages.ERROR, _('You can not delete yourself!'))
             return HttpResponseRedirect(reverse("users"))
         if not request.user.is_superuser:
-            messages.add_message(request, messages.ERROR, _('You have no permission to delete users!'))
+            messages.add_message(
+                request,
+                messages.ERROR,
+                _('You have no permission to delete users!')
+            )
             return HttpResponseRedirect(reverse("users"))
         return super().post(request, *args, **kwargs)
 
@@ -74,10 +80,19 @@ class UserDeleteView(SuccessMessageMixin, RedirectToLoginMixin, DeleteView):
         try:
             return super().form_valid(form)
         except ProtectedError:
-            messages.error(self.request, _('You can not delete the user who is connected to the task!'))
+            messages.error(
+                self.request,
+                _('You can not delete the user who is connected to the task!')
+            )
             return redirect(reverse_lazy('users'))
 
-class UserUpdateView(SuccessMessageMixin, RedirectToLoginMixin, InvalidUpdateCreateMixin, UpdateView):
+
+class UserUpdateView(
+    SuccessMessageMixin,
+    RedirectToLoginMixin,
+    InvalidUpdateCreateMixin,
+    UpdateView
+):
     model = User
 
     form_class = UserUpdateForm
@@ -91,6 +106,10 @@ class UserUpdateView(SuccessMessageMixin, RedirectToLoginMixin, InvalidUpdateCre
         if not request.user.is_authenticated:
             return self.handle_no_permission()
         if not request.user.is_superuser and request.user != self.get_object():
-            messages.add_message(request, messages.ERROR, _('You have no permission to edit users!'))
+            messages.add_message(
+                request,
+                messages.ERROR,
+                _('You have no permission to edit users!')
+            )
             return HttpResponseRedirect(reverse("users"))
         return super().dispatch(request, *args, **kwargs)
