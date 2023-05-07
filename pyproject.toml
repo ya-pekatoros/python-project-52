@@ -21,6 +21,7 @@ django-coverage = "^1.2.4"
 coverage = "^7.2.5"
 gunicorn = "^20.1.0"
 whitenoise = "^6.4.0"
+flake8 = "^6.0.0"
 
 
 [build-system]
