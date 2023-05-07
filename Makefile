@@ -63,6 +63,9 @@ test:
 		poetry run coverage run --source='.' manage.py test
 		poetry run coverage report
 
+test-cov:
+		poetry run coverage
+
 transprepare:
 		poetry run django-admin makemessages --locale ru --add-location file
 		poetry run django-admin makemessages --locale ru --add-location file --domain djangojs
