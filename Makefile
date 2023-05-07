@@ -64,7 +64,7 @@ test:
 		poetry run coverage report
 
 test-cov:
-		poetry run coverage
+		poetry run coverage xml
 
 transprepare:
 		poetry run django-admin makemessages --locale ru --add-location file
