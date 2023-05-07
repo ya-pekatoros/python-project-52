@@ -35,6 +35,8 @@ jobs:
           pip install poetry
           make install
       - name: Run linter and pytest
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           make lint
           make test

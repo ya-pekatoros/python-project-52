@@ -34,7 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'webserver',
     'localhost',
-    'https://python-project-52-production-bf42.up.railway.app',
+    'python-project-52-production-bf42.up.railway.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
