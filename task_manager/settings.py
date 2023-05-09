@@ -103,7 +103,7 @@ if 'test' in sys.argv or os.getenv('DATABASE_NAME', None) is None:
     DATABASES = {
         "default": {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'mydatabase'
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 else:
