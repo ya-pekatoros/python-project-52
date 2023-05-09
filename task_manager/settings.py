@@ -145,7 +145,7 @@ ROLLBAR = {
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 LANGUAGES = [
     ('ru', _('Russian')),
