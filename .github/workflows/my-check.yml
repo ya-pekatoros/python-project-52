@@ -36,8 +36,9 @@ jobs:
           make install
       - name: Run linter and pytest
         env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
+          MY_TESTS: ${{ secrets.MY_TESTS }}
         run: |
           make lint
           make test

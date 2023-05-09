@@ -145,7 +145,10 @@ ROLLBAR = {
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+if os.getenv('MY_TESTS', None):
+    LANGUAGE_CODE = 'en'
+else:
+    LANGUAGE_CODE = 'ru'
 
 LANGUAGES = [
     ('ru', _('Russian')),

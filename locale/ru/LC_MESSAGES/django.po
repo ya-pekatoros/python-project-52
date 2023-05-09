@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-01 16:04+0300\n"
+"POT-Creation-Date: 2023-05-10 00:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,14 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-
-#: config/settings.py
-msgid "Russian"
-msgstr "Русский"
-
-#: config/settings.py
-msgid "English"
-msgstr "Английский"
 
 #: task_manager/labels/forms.py task_manager/statuses/forms.py
 #: task_manager/tasks/forms.py templates/task_manager/labels/label_list.html
@@ -54,6 +46,14 @@ msgstr "Вы не можете удалить метку, назначенную
 #: task_manager/labels/views.py
 msgid "Label has been updated successfully!"
 msgstr "Метка изменена успешно!"
+
+#: task_manager/settings.py
+msgid "Russian"
+msgstr "Русский"
+
+#: task_manager/settings.py
+msgid "English"
+msgstr "Английский"
 
 #: task_manager/statuses/forms.py
 msgid "A status with that name already exists."
@@ -190,7 +190,8 @@ msgstr "Задачи"
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/components/navbar.html templates/task_manager/users/login.html
+#: templates/components/navbar.html
+msgctxt "Navbar login"
 msgid "Login"
 msgstr "Вход"
 
@@ -258,6 +259,13 @@ msgstr "Изменить"
 msgid "Delete"
 msgstr "Удалить"
 
+#: templates/task_manager/labels/label_list.html
+#: templates/task_manager/statuses/status_list.html
+#: templates/task_manager/tasks/task_list.html
+#: templates/task_manager/users/user_list.html
+msgid "Nothing found"
+msgstr ""
+
 #: templates/task_manager/labels/label_update.html
 msgid "Label update"
 msgstr "Изменение метки"
@@ -311,12 +319,20 @@ msgid "Author"
 msgstr "Автор"
 
 #: templates/task_manager/tasks/task_list.html
+msgid "Apply"
+msgstr ""
+
+#: templates/task_manager/tasks/task_list.html
 msgid "Create task"
 msgstr "Создать задачу"
 
 #: templates/task_manager/tasks/task_update.html
 msgid "Task update"
 msgstr "Изменение задачи"
+
+#: templates/task_manager/users/login.html
+msgid "Login"
+msgstr "Войти"
 
 #: templates/task_manager/users/user_create.html
 msgid "Registration"
