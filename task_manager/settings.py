@@ -14,7 +14,6 @@ from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 import os
 from pathlib import Path
-import sys
 
 
 load_dotenv()
