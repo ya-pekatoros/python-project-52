@@ -38,8 +38,6 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 
     success_message = _('Login successful!')
 
-    next_page = reverse_lazy('index')
-
     def form_invalid(self, form):
         messages.add_message(self.request, messages.ERROR, _('Invalid username or password!'))
         form.add_error('username', '')
