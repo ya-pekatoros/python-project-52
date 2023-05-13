@@ -128,7 +128,7 @@ msgstr "Пользователь зарегистрирован успешно!"
 
 #: task_manager/users/views.py
 msgid "Login successful!"
-msgstr "Вы успешно вошли!"
+msgstr "Вы залогинены"
 
 #: task_manager/users/views.py
 msgid "Invalid username or password!"
