@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-    <h1 class="my-4">{% translate "Login" %}</h1>
+    <h1 class="my-4">{% translate "Login page" %}</h1>
     {% with submit_button_text=_("Login") form=form method="post" %}
       {% include 'components/form.html' %}
     {% endwith %}
