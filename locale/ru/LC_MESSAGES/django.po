@@ -100,19 +100,19 @@ msgstr "Задача с таким именем уже существует"
 
 #: task_manager/tasks/views.py
 msgid "Task has been created successfully!"
-msgstr "Задача создана успешно!"
+msgstr "Задача успешно создана"
 
 #: task_manager/tasks/views.py
 msgid "Task has been deleted successfully!"
-msgstr "Задача удалена успешно!"
+msgstr "Задача успешно удалена"
 
 #: task_manager/tasks/views.py
 msgid "Only author of the task can delete it!"
-msgstr "Только автор задачи может ее удалить"
+msgstr "Задачу может удалить только её автор"
 
 #: task_manager/tasks/views.py
 msgid "Task has been updated successfully!"
-msgstr "Задача изменена успешно!"
+msgstr "Задача успешно изменена"
 
 #: task_manager/tasks/views.py
 msgid "Only author of the task can edit it!"
