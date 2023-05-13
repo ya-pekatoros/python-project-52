@@ -124,7 +124,7 @@ msgstr "Введите заново пароль и повторите его в
 
 #: task_manager/users/views.py
 msgid "User has been registered successfully!"
-msgstr "Пользователь зарегистрирован успешно!"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py
 msgid "Login successful!"
