@@ -33,19 +33,19 @@ msgstr "Метка с таким именем уже существует"
 
 #: task_manager/labels/views.py
 msgid "Label has been created successfully!"
-msgstr "Метка создана успешно!"
+msgstr "Метка успешно создана"
 
 #: task_manager/labels/views.py
 msgid "Label has been deleted successfully!"
-msgstr "Метка удалена успешно!"
+msgstr "Метка успешно удалена"
 
 #: task_manager/labels/views.py
 msgid "You can not delete the Label that is assigned to the task!"
-msgstr "Вы не можете удалить метку, назначенную задаче"
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/labels/views.py
 msgid "Label has been updated successfully!"
-msgstr "Метка изменена успешно!"
+msgstr "Метка успешно изменена"
 
 #: task_manager/settings.py
 msgid "Russian"
@@ -61,19 +61,19 @@ msgstr "Статус с таким именем уже существует"
 
 #: task_manager/statuses/views.py
 msgid "Status has been created successfully!"
-msgstr "Статус создан успешно!"
+msgstr "Статус успешно создан"
 
 #: task_manager/statuses/views.py
 msgid "Status has been deleted successfully!"
-msgstr "Статус удален успешно!"
+msgstr "Статус успешно удалён"
 
 #: task_manager/statuses/views.py
 msgid "You can not delete the status that is assigned to the task!"
-msgstr "Вы не можете удалить статус, назначенный задаче"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/statuses/views.py
 msgid "Status has been updated successfully!"
-msgstr "Стутс изменен успешно!"
+msgstr "Стутс успешно изменён"
 
 #: task_manager/tasks/forms.py
 msgid "Description"
