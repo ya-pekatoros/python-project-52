@@ -136,7 +136,7 @@ msgstr "Неправильное имя пользователя или паро
 
 #: task_manager/users/views.py
 msgid "Logout successful!"
-msgstr "Вы успешно вышли!"
+msgstr "Вы разлогинены"
 
 #: task_manager/users/views.py
 msgid "User has been deleted successfully!"
