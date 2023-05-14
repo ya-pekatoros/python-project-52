@@ -73,7 +73,7 @@ msgstr "Невозможно удалить статус, потому что о
 
 #: task_manager/statuses/views.py
 msgid "Status has been updated successfully!"
-msgstr "Стутс успешно изменён"
+msgstr "Статус успешно изменён"
 
 #: task_manager/tasks/forms.py
 msgid "Description"
