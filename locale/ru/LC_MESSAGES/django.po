@@ -140,7 +140,7 @@ msgstr "Вы разлогинены"
 
 #: task_manager/users/views.py
 msgid "User has been deleted successfully!"
-msgstr "Пользователь удален успешно!"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/users/views.py
 msgid "You can not delete yourself!"
