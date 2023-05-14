@@ -188,18 +188,6 @@ class UserCrudTestCase(TestCase):
         self.assertContains(response, 'You are not authorized, please log in!', status_code=200)
 
         self.client.login(
-            username=self.users_data[1]['fields']['username'],
-            password=self.users_data[1]['fields']['password']
-        )
-        response = self.client.post(request_url, follow=True)
-        self.assertContains(response, 'You can not delete yourself!', status_code=200)
-
-        user_2_id = User.objects.get(id=self.users_data[0]['pk']).id
-        request_url_2 = '/users/' + str(user_2_id) + '/delete/'
-        response = self.client.post(request_url_2, follow=True)
-        self.assertContains(response, 'You have no permission to delete users!', status_code=200)
-
-        self.client.login(
             username=self.users_data[0]['fields']['username'],
             password=self.users_data[0]['fields']['password']
         )

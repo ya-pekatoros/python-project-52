@@ -60,13 +60,6 @@ class UserDeleteView(SuccessMessageMixin, RedirectToLoginMixin, DeleteView):
     success_message = _('User has been deleted successfully!')
 
     def post(self, request, *args, **kwargs):
-        if not request.user.is_superuser:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                _('You have no permission to delete users!')
-            )
-            return HttpResponseRedirect(reverse("users"))
         return super().post(request, *args, **kwargs)
 
     def form_valid(self, form):
