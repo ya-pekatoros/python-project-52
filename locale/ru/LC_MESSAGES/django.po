@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-14 14:57+0300\n"
+"POT-Creation-Date: 2023-05-14 15:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -315,8 +315,8 @@ msgid "Author"
 msgstr "Автор"
 
 #: templates/task_manager/tasks/task_list.html
-msgid "Apply"
-msgstr ""
+msgid "Show"
+msgstr "Показать"
 
 #: templates/task_manager/tasks/task_list.html
 msgid "Create task"
