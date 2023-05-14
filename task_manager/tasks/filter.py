@@ -16,6 +16,12 @@ class TaskFilter(FilterSet):
         model = Task
         fields = ['status', 'executor', 'labels']
 
+        labels = {
+            'status': _('Name'),
+            'executor': _('Executor'),
+            'labels': _('Labels')
+        }
+
     def filter_my_tasks(self, queryset, _, value):
         if value:
             return queryset.filter(author=self.request.user)
