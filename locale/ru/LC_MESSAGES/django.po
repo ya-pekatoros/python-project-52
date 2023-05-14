@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 05:46+0300\n"
+"POT-Creation-Date: 2023-05-14 14:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,6 +74,10 @@ msgstr "Невозможно удалить статус, потому что о
 #: task_manager/statuses/views.py
 msgid "Status has been updated successfully!"
 msgstr "Статус успешно изменён"
+
+#: task_manager/tasks/filter.py
+msgid "Only my tasks"
+msgstr "Только свои задачи"
 
 #: task_manager/tasks/forms.py
 msgid "Description"
@@ -141,14 +145,6 @@ msgstr "Вы разлогинены"
 #: task_manager/users/views.py
 msgid "User has been deleted successfully!"
 msgstr "Пользователь успешно удалён"
-
-#: task_manager/users/views.py
-msgid "You can not delete yourself!"
-msgstr "Вы не можете удалить себя!"
-
-#: task_manager/users/views.py
-msgid "You have no permission to delete users!"
-msgstr "Вы не имеете прав на удаление пользователей!"
 
 #: task_manager/users/views.py
 msgid "You can not delete the user who is connected to the task!"
@@ -331,7 +327,6 @@ msgid "Task update"
 msgstr "Изменение задачи"
 
 #: templates/task_manager/users/login.html
-#| msgid "Login"
 msgid "Login page"
 msgstr "Страница входа"
 
@@ -370,3 +365,9 @@ msgstr "Дата регистрации"
 #: templates/task_manager/users/user_update.html
 msgid "User update"
 msgstr "Изменение пользователя"
+
+#~ msgid "You can not delete yourself!"
+#~ msgstr "Вы не можете удалить себя!"
+
+#~ msgid "You have no permission to delete users!"
+#~ msgstr "Вы не имеете прав на удаление пользователей!"
