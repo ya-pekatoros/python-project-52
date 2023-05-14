@@ -25,7 +25,7 @@ msgstr ""
 #: templates/task_manager/statuses/status_list.html
 #: templates/task_manager/tasks/task_list.html
 msgid "Name"
-msgstr "Название"
+msgstr "Имя"
 
 #: task_manager/labels/forms.py
 msgid "A label with that name already exists."
