@@ -16,7 +16,7 @@ class TaskFilter(FilterSet):
         super().__init__(*args, **kwargs)
         self.filters['status'].label=_("Status")
         self.filters['executor'].label=_("Executor")
-        self.filters['labels'].label=_("Labels")
+        self.filters['labels'].label=_("Label")
 
 
     class Meta:
