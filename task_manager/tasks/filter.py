@@ -12,15 +12,16 @@ class TaskFilter(FilterSet):
         widget=CheckboxInput()
     )
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.filters['status'].label=_("Status")
+        self.filters['executor'].label=_("Executor")
+        self.filters['labels'].label=_("Labels")
+
+
     class Meta:
         model = Task
         fields = ['status', 'executor', 'labels']
-
-        labels = {
-            'status': _('Name'),
-            'executor': _('Executor'),
-            'labels': _('Labels')
-        }
 
     def filter_my_tasks(self, queryset, _, value):
         if value:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-14 16:52+0300\n"
+"POT-Creation-Date: 2023-05-14 17:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,8 +21,7 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/labels/forms.py task_manager/statuses/forms.py
-#: task_manager/tasks/filter.py task_manager/tasks/forms.py
-#: templates/task_manager/labels/label_list.html
+#: task_manager/tasks/forms.py templates/task_manager/labels/label_list.html
 #: templates/task_manager/statuses/status_list.html
 #: templates/task_manager/tasks/task_list.html
 msgid "Name"
@@ -83,6 +82,12 @@ msgstr "Только свои задачи"
 #: task_manager/tasks/filter.py task_manager/tasks/forms.py
 #: templates/task_manager/tasks/task_detail.html
 #: templates/task_manager/tasks/task_list.html
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/tasks/filter.py task_manager/tasks/forms.py
+#: templates/task_manager/tasks/task_detail.html
+#: templates/task_manager/tasks/task_list.html
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -95,11 +100,6 @@ msgstr "Метки"
 #: task_manager/tasks/forms.py
 msgid "Description"
 msgstr "Описание"
-
-#: task_manager/tasks/forms.py templates/task_manager/tasks/task_detail.html
-#: templates/task_manager/tasks/task_list.html
-msgid "Status"
-msgstr "Статус"
 
 #: task_manager/tasks/forms.py
 msgid "A task with that name already exists."
@@ -263,7 +263,7 @@ msgstr "Удалить"
 #: templates/task_manager/tasks/task_list.html
 #: templates/task_manager/users/user_list.html
 msgid "Nothing found"
-msgstr ""
+msgstr "Ничего не найдено"
 
 #: templates/task_manager/labels/label_update.html
 msgid "Label update"
