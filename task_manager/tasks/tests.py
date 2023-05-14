@@ -79,13 +79,13 @@ class TasksCrudTestCase(TestCase):
     def test_update_task(self):
 
         task_id = Task.objects.get(id=self.tasks_data[0]['pk']).id
-        request_url = '/task/' + str(task_id) + '/update/'
+        request_url = '/tasks/' + str(task_id) + '/update/'
 
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Only author of the task can edit it!', status_code=200)
 
         task_id = Task.objects.get(id=self.tasks_data[1]['pk']).id
-        request_url = '/task/' + str(task_id) + '/update/'
+        request_url = '/tasks/' + str(task_id) + '/update/'
 
         response = self.client.post(
             request_url,
@@ -123,14 +123,14 @@ class TasksCrudTestCase(TestCase):
     def test_delete_task(self):
 
         task_id = Task.objects.get(id=self.tasks_data[0]['pk']).id
-        request_url = '/task/' + str(task_id) + '/delete/'
+        request_url = '/tasks/' + str(task_id) + '/delete/'
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Only author of the task can delete it!', status_code=200)
         response = self.client.post(request_url, follow=True)
         self.assertContains(response, 'Only author of the task can delete it!', status_code=200)
 
         task_id = Task.objects.get(id=self.tasks_data[1]['pk']).id
-        request_url = '/task/' + str(task_id) + '/delete/'
+        request_url = '/tasks/' + str(task_id) + '/delete/'
 
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Yes, delete', status_code=200)
@@ -147,7 +147,7 @@ class TasksCrudTestCase(TestCase):
         )
 
         task_id = Task.objects.get(id=self.tasks_data[1]['pk']).id
-        request_url = '/task/' + str(task_id) + '/delete/'
+        request_url = '/tasks/' + str(task_id) + '/delete/'
 
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Yes, delete', status_code=200)

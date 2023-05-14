@@ -73,7 +73,7 @@ class StatusCrudTestCase(TestCase):
     def test_update_status(self):
 
         status_id = Status.objects.get(id=self.statuses_data[0]['pk']).id
-        request_url = '/status/' + str(status_id) + '/update/'
+        request_url = '/statuses/' + str(status_id) + '/update/'
 
         response = self.client.post(
             request_url,
@@ -88,7 +88,7 @@ class StatusCrudTestCase(TestCase):
     def test_delete_status(self):
 
         status_id = Status.objects.get(id=self.statuses_data[0]['pk']).id
-        request_url = '/status/' + str(status_id) + '/delete/'
+        request_url = '/statuses/' + str(status_id) + '/delete/'
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Yes, delete', status_code=200)
         response = self.client.post(request_url, follow=True)
@@ -99,7 +99,7 @@ class StatusCrudTestCase(TestCase):
         )
 
         status_id = Status.objects.get(id=self.statuses_data[2]['pk']).id
-        request_url = '/status/' + str(status_id) + '/delete/'
+        request_url = '/statuses/' + str(status_id) + '/delete/'
 
         response = self.client.post(request_url, follow=True)
         self.assertContains(response, 'Status has been deleted successfully!', status_code=200)

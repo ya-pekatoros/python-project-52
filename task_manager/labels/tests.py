@@ -73,7 +73,7 @@ class LabelsCrudTestCase(TestCase):
     def test_update_label(self):
 
         label_id = Label.objects.get(id=self.labels_data[0]['pk']).id
-        request_url = '/label/' + str(label_id) + '/update/'
+        request_url = '/labels/' + str(label_id) + '/update/'
 
         response = self.client.post(
             request_url,
@@ -88,7 +88,7 @@ class LabelsCrudTestCase(TestCase):
     def test_delete_label(self):
 
         label_id = Label.objects.get(id=self.labels_data[0]['pk']).id
-        request_url = '/label/' + str(label_id) + '/delete/'
+        request_url = '/labels/' + str(label_id) + '/delete/'
         response = self.client.get(request_url, follow=True)
         self.assertContains(response, 'Yes, delete', status_code=200)
         response = self.client.post(request_url, follow=True)
@@ -99,7 +99,7 @@ class LabelsCrudTestCase(TestCase):
         )
 
         status_id = Label.objects.get(id=self.labels_data[2]['pk']).id
-        request_url = '/label/' + str(status_id) + '/delete/'
+        request_url = '/labels/' + str(status_id) + '/delete/'
 
         response = self.client.post(request_url, follow=True)
         self.assertContains(response, 'Label has been deleted successfully!', status_code=200)
