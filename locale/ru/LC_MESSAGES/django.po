@@ -82,7 +82,7 @@ msgstr "Описание"
 #: task_manager/tasks/forms.py templates/task_manager/tasks/task_detail.html
 #: templates/task_manager/tasks/task_list.html
 msgid "Status"
-msgstr "Статусы"
+msgstr "Статус"
 
 #: task_manager/tasks/forms.py templates/task_manager/tasks/task_detail.html
 #: templates/task_manager/tasks/task_list.html
