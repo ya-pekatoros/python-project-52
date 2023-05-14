@@ -48,11 +48,11 @@ class LabelsCrudTestCase(TestCase):
 
     def test_create_label(self):
 
-        response = self.client.get('/label/create/')
+        response = self.client.get('/labels/create/')
         self.assertContains(response, "Label creation", status_code=200)
 
         response = self.client.post(
-            '/label/create/',
+            '/labels/create/',
             {
                 'name': "Test-label-4"
             },
@@ -62,7 +62,7 @@ class LabelsCrudTestCase(TestCase):
         self.assertTrue(Label.objects.filter(name="Test-label-4").exists())
 
         response = self.client.post(
-            '/label/create/',
+            '/labels/create/',
             {
                 'name': "Test-label-1"
             },
