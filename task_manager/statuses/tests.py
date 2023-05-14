@@ -48,11 +48,11 @@ class StatusCrudTestCase(TestCase):
 
     def test_create_status(self):
 
-        response = self.client.get('/status/create/')
+        response = self.client.get('/statuses/create/')
         self.assertContains(response, "Status creation", status_code=200)
 
         response = self.client.post(
-            '/status/create/',
+            '/statuses/create/',
             {
                 'name': "Test-status-4"
             },
@@ -62,7 +62,7 @@ class StatusCrudTestCase(TestCase):
         self.assertTrue(Status.objects.filter(name="Test-status-4").exists())
 
         response = self.client.post(
-            '/status/create/',
+            '/statuses/create/',
             {
                 'name': "Test-status-1"
             },
