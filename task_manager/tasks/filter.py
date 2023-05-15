@@ -14,10 +14,9 @@ class TaskFilter(FilterSet):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.filters['status'].label=_("Status")
-        self.filters['executor'].label=_("Executor")
-        self.filters['labels'].label=_("Label")
-
+        self.filters['status'].label = _("Status")
+        self.filters['executor'].label = _("Executor")
+        self.filters['labels'].label = _("Label")
 
     class Meta:
         model = Task

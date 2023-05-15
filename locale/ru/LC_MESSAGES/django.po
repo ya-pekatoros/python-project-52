@@ -92,7 +92,6 @@ msgid "Executor"
 msgstr "Исполнитель"
 
 #: task_manager/tasks/filter.py
-#, fuzzy
 #| msgid "Labels"
 msgid "Label"
 msgstr "Метка"
