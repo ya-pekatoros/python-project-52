@@ -16,7 +16,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(BASE_DIR)
 
 # add the virtualenv site-packages path to the sys.path
-sys.path.append(os.path.join(BASE_DIR, '.env', 'lib', 'python3.10', 'site-packages'))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_manager.settings')
 

@@ -1,9 +1,16 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Simple task manager for common purposes"
 authors = ["Yaroslav Pekatoros <y.pekatoros@gmail.com>"]
 readme = "README.md"
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python",
+    "Programming Language :: SQL",
+    "Database :: PostgreSQL",
+    "Topic :: Software Development :: Task Manager"
+]
 packages = [{include = "task_manager"}]
 
 [tool.poetry.dependencies]
