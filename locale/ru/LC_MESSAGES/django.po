@@ -65,7 +65,7 @@ msgstr "Статус успешно создан"
 
 #: task_manager/statuses/views.py
 msgid "Status has been deleted successfully!"
-msgstr "Статус успешно удалён"
+msgstr "Статус успешно удален"
 
 #: task_manager/statuses/views.py
 msgid "You can not delete the status that is assigned to the task!"
@@ -73,7 +73,7 @@ msgstr "Невозможно удалить статус, потому что о
 
 #: task_manager/statuses/views.py
 msgid "Status has been updated successfully!"
-msgstr "Статус успешно изменён"
+msgstr "Статус успешно изменен"
 
 #: task_manager/tasks/filter.py
 msgid "Only my tasks"
@@ -151,7 +151,7 @@ msgstr "Вы разлогинены"
 
 #: task_manager/users/views.py
 msgid "User has been deleted successfully!"
-msgstr "Пользователь успешно удалён"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py
 msgid "You can not delete the user who is connected to the task!"
