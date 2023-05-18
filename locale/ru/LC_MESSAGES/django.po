@@ -159,7 +159,7 @@ msgstr "Вы не можете удалить пользователя, связ
 
 #: task_manager/users/views.py
 msgid "User has been updated successfully!"
-msgstr "Пользователь успешно изменён"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py
 msgid "You have no permission to edit users!"
