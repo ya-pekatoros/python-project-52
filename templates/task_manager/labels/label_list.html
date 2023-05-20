@@ -22,7 +22,7 @@
                     <td> 
                         <a href="{% url 'label-update' label.id %}">{% translate "Change" %}</a>
                         <br>
-                        <a href="{% url 'label-delete' label.id %}">{% translate "Delete" %}</a>
+                        <a href="{% url 'label-delete' label.id %}" class="text-danger">{% translate "Delete" %}</a>
                     </td>
                 </tr>
             {% endfor %}

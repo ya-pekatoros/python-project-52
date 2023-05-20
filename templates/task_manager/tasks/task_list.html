@@ -2,8 +2,10 @@
 {% load i18n %}
 {% block content %}
     {% with submit_button_text=_("Show") form=filter.form method="get" %}
-    <div class="col-lg-3 col-md-6">
-    {% include 'components/form.html' %}
+    <div class="card-mb-3">
+        <div class="card-body bg-light">
+            {% include 'components/form.html' %}
+        </div>
     </div>
     {% endwith %}
     <div class="mb-2">
@@ -43,7 +45,7 @@
                     <td> 
                         <a href="{% url 'task-update' task.id %}">{% translate "Change" %}</a>
                         <br>
-                        <a href="{% url 'task-delete' task.id %}">{% translate "Delete" %}</a>
+                        <a href="{% url 'task-delete' task.id %}" class="text-danger">{% translate "Delete" %}</a>
                     </td>
                 </tr>
             {% endfor %}
